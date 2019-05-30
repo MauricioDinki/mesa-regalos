@@ -1,0 +1,186 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-30 01:19-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: project/apps/gifts/models.py:7 project/apps/tables/forms.py:43
+#: project/apps/tables/models.py:17 project/apps/tables/models.py:79
+msgid "Name"
+msgstr "Nombre"
+
+#: project/apps/gifts/models.py:13
+msgid "Image"
+msgstr "Imagen"
+
+#: project/apps/gifts/models.py:18
+msgid "Price"
+msgstr "Precio"
+
+#: project/apps/gifts/models.py:23 project/apps/tables/models.py:50
+msgid "Description"
+msgstr "Descripcíon"
+
+#: project/apps/gifts/models.py:29
+msgid "Stock"
+msgstr "Stock"
+
+#: project/apps/gifts/models.py:35 project/apps/tables/models.py:73
+msgid "Gift"
+msgstr "Regalo"
+
+#: project/apps/gifts/models.py:36
+msgid "Gifts"
+msgstr "Regalos"
+
+#: project/apps/tables/forms.py:47 project/apps/tables/models.py:85
+#: project/apps/users/forms.py:26 project/apps/users/forms.py:72
+#: project/apps/users/models.py:44
+msgid "Email"
+msgstr "Correo"
+
+#: project/apps/tables/forms.py:52
+msgid "You can write a note with your gift"
+msgstr "Puedes escribir una nota para tu regalo"
+
+#: project/apps/tables/forms.py:55 project/apps/tables/models.py:91
+msgid "Note"
+msgstr "Nota"
+
+#: project/apps/tables/forms.py:59
+msgid "Card Number"
+msgstr "Numero Tarjeta"
+
+#: project/apps/tables/forms.py:63
+msgid "Expiration Month (MM)"
+msgstr "Mes de Expiracion (MM)"
+
+#: project/apps/tables/forms.py:68
+msgid "Expiration Year (YY)"
+msgstr "Año de Expiracion (AA)"
+
+#: project/apps/tables/forms.py:72
+msgid "CVV"
+msgstr "CVV"
+
+#: project/apps/tables/forms.py:76 project/apps/tables/forms.py:82
+msgid "Just if you require bill"
+msgstr "Solo si requiere factura"
+
+#: project/apps/tables/forms.py:77
+msgid "Address"
+msgstr "Direccion"
+
+#: project/apps/tables/forms.py:83
+msgid "RFC"
+msgstr "RFC"
+
+#: project/apps/tables/models.py:11
+msgid "User"
+msgstr "Usuario"
+
+#: project/apps/tables/models.py:23
+msgid "Type"
+msgstr "Tipo"
+
+#: project/apps/tables/models.py:28
+msgid "Birthday"
+msgstr "Cumpleaños"
+
+#: project/apps/tables/models.py:29
+msgid "Christening"
+msgstr "Bautizo"
+
+#: project/apps/tables/models.py:30
+msgid "Weeding"
+msgstr "Boda"
+
+#: project/apps/tables/models.py:31
+msgid "Fifteen Party"
+msgstr "Fiesta de Quince años"
+
+#: project/apps/tables/models.py:35
+msgid "Date"
+msgstr "Fecha"
+
+#: project/apps/tables/models.py:40
+msgid "Close Date"
+msgstr "Fecha de Cierre"
+
+#: project/apps/tables/models.py:45
+msgid "Delivery Date"
+msgstr "Fecha de Entrega"
+
+#: project/apps/tables/models.py:56 project/apps/tables/models.py:66
+msgid "Table"
+msgstr "Mesa"
+
+#: project/apps/tables/models.py:57
+msgid "Tables"
+msgstr "Mesas"
+
+#: project/apps/tables/models.py:97
+msgid "Table Gift"
+msgstr "Regalo de Mesa"
+
+#: project/apps/tables/models.py:98
+msgid "Table Gifts"
+msgstr "Regalos de Mesa"
+
+#: project/apps/users/admin.py:14
+msgid "Basic Info"
+msgstr "Informacion Basica"
+
+#: project/apps/users/admin.py:16
+msgid "Permissions"
+msgstr "Permisos"
+
+#: project/apps/users/admin.py:25
+msgid "Important dates"
+msgstr "Fechas importantes"
+
+#: project/apps/users/forms.py:12 project/apps/users/models.py:32
+msgid "First Name"
+msgstr "Nombre(s)"
+
+#: project/apps/users/forms.py:19 project/apps/users/models.py:38
+msgid "Last Name"
+msgstr "Apellido(s)"
+
+#: project/apps/users/forms.py:33 project/apps/users/forms.py:82
+msgid "Password"
+msgstr "Contraseña"
+
+#: project/apps/users/forms.py:45
+msgid "This email is already associated with an account"
+msgstr "Este email ya esta en uso"
+
+#: project/apps/users/forms.py:103
+msgid "Email or password are incorrect"
+msgstr "Correo o contraseña incorrectos"
+
+#: project/apps/users/forms.py:107
+msgid "This account is not active"
+msgstr "Esta cuenta no esta activa"
+
+#: project/apps/users/models.py:49
+msgid "Is Active"
+msgstr "Esta activo"
+
+#: project/apps/users/models.py:53
+msgid "Is Staff"
+msgstr "Es staff"

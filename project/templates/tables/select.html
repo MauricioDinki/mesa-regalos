@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block style %}
+	<style type="text/css">
+		.cool-card:nth-child(n+4) {
+			margin-top: 20px;
+		}
+	</style>
+{% endblock %}
+
+{% block content %}
+	<h2 class="mt-2" style="margin-top: 20px">Comprar un regalo</h2>
+	<hr class="mt-0 mb-4">
+	<ul class="list-group">
+		<li class="list-group-item">
+			<strong>Anfitrion:</strong> {{ table.user.first_name }} {{ table.user.last_name }}
+		</li>
+		<li class="list-group-item">
+			<strong>Evento:</strong> {{ table.get_type_display }}
+		</li>
+	</ul>
+	<div class="row" style="margin-top: 20px">
+		{% for item in gifts %}
+			<div class="col-4 cool-card">
+				<div class="card">
+					<img class="card-img-top" src="{{ item.gift.image.url }}" alt="Card image cap">
+					<div class="card-body">
+						<h5 class="card-title">{{ item.gift.name }}</h5>
+						<p class="card-text">
+							{{ item.gift.description }}
+						</p>
+						{% if item.name %}
+							<a href="#" class="btn btn-primary disabled">Comprado</a>
+						{% else %}
+							<a href="{% url 'tables:buy_gift' pk=item.table.id id=item.gift.id %}" class="btn btn-primary">Comprar</a>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}

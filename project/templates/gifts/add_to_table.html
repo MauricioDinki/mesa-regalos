@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block style %}
+	<style type="text/css">
+		.cool-card:nth-child(n+4) {
+			margin-top: 20px;
+		}
+
+		.card.selected {
+			border: 2px solid #007bff;
+		}
+	</style>
+{% endblock %}
+
+{% block content %}
+	<nav aria-label="breadcrumb" style="margin-top: 20px">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item">Evento</li>
+			<li class="breadcrumb-item active" aria-current="page">Regalos</li>
+		</ol>
+	</nav>
+	<h2 class="mt-2">Selecciona los regalos</h2>
+	<hr class="mt-0 mb-4">
+	<div class="row">
+		{% for gift in gifts %}
+			<div class="col-4 cool-card">
+				<div class="card">
+					<img class="card-img-top" src="{{ gift.image.url }}" alt="Card image cap">
+					<div class="card-body">
+						<h5 class="card-title">{{ gift.name }}</h5>
+						<p class="card-text">
+							{{ gift.description }}
+						</p>
+						<button type="button" class="btn btn-primary gift-button" data-id="{{ gift.id }}">
+							Seleccionar
+						</button>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+	<div class="row" style="margin-top: 30px">
+		<div class="col-4">
+			<form method="post" id="continueForm">
+				{% csrf_token %}
+				<button type="button" id="formButton" class="btn btn-success">Finalizar</button>
+			</form>
+		</div>
+	</div>
+{% endblock %}
+{% block scripts %}
+	<script
+		src="https://code.jquery.com/jquery-3.4.1.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+		crossorigin="anonymous"></script>
+	<script type="application/javascript">
+		var selected = [];
+		$('.gift-button').click(function (e) {
+			var id = $(this).attr('data-id');
+			var $card = $(this).parent().parent();
+			if (selected.includes(id)) {
+				for (var i = 0; i < selected.length; i++) {
+					if (selected[i] === id) {
+						selected.splice(i, 1);
+					}
+				}
+				$card.removeClass('selected');
+				console.log(selected)
+			} else {
+				selected.push(id);
+				$card.addClass('selected');
+				console.log(selected)
+			}
+		});
+		$('#formButton').click(function () {
+			$.ajax({
+				type: "POST",
+				url: '/regalos/',
+				data: { gifts : JSON.stringify(selected)},
+				success: function (data) {
+					window.location.href = "/perfil/";
+				},
+				error: function (data) {
+					alert("Ocurrio un error, recargue la pagina e intentelo de nuevo")
+				},
+			});
+		})
+	</script>
+{% endblock %}

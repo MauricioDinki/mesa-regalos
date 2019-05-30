@@ -1,0 +1,17 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+django = {extras = ["argon2"],version = "*"}
+django-environ = "*"
+psycopg2-binary = "*"
+pillow = "*"
+django-crispy-forms = "*"
+reportlab = "*"
+
+[requires]
+python_version = "3.7"

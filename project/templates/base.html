@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+				integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	{% block style %}
+	{% endblock %}
+	<title>Mesa de Regalos</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<a class="navbar-brand" href="/">Mesa de Regalos</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+			{% if request.user.is_authenticated %}
+				<li class="nav-item active">
+					<a class="nav-link" href="{% url 'users:logout' %}">Salir</a>
+				</li>
+			{% endif %}
+		</ul>
+	</div>
+</nav>
+<div class="container">
+	{% for message in messages %}
+		<div class="alert {{ message.tags }} alert-dismissible" role="alert" style="margin-top: 20px">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			{{ message }}
+		</div>
+	{% endfor %}
+	<div class="row justify-content-center">
+		<div class="col-10">
+			{% block content %}
+			{% endblock %}
+		</div>
+	</div>
+</div>
+{% block scripts %}
+{% endblock %}
+</body>
+</html>

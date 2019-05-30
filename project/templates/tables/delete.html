@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<form method="post" style="margin-top: 20px">
+		{% csrf_token %}
+		<h4 style="margin-bottom: 30px">
+			¿ Estas seguro que deseas eliminar "{{ object }}" ?
+		</h4>
+		<input type="submit" value="Eliminar" class="btn btn-danger">
+		<a href="{% url 'users:profile' %}" class="btn btn-info"> Regresar</a>
+	</form>
+{% endblock %}

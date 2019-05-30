@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+	<h3 class="mt-2" style="margin-top: 20px">Compra {{ gift }} para {{ table.user.first_name }}</h3>
+	<hr class="mt-0 mb-4">
+	<form method="post" action="." novalidate>
+		{% csrf_token %}
+		{{ form | crispy }}
+		<button type="submit" class="btn btn-success">Comprar</button>
+		<a href="{% url 'tables:select_gift' pk=table.id %}" class="btn btn btn-info"> Regresar</a>
+
+	</form>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block content %}
+	<div class="row" style="margin-top: 20px">
+		<div class="col-12">
+			<h3>
+				Bienvenido {{ request.user.first_name }}
+			</h3>
+		</div>
+	</div>
+	<div class="row" style="margin-top: 20px">
+		<div class="col-12">
+			<a href="{% url 'tables:event' %}" class="btn btn-success">Agregar Mesa de Regalo</a>
+		</div>
+	</div>
+	<div class="row" style="margin-top: 20px">
+		<div class="col-12">
+			<table class="table">
+				<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Nombre</th>
+					<th scope="col">Fecha del Evento</th>
+					<th scope="col">Fecha de Cierre</th>
+					<th scope="col">Fecha de Entrega</th>
+					<th scope="col"></th>
+					<th scope="col"></th>
+					<th scope="col"></th>
+				</tr>
+				</thead>
+				<tbody>
+				{% for table in tables %}
+					<tr>
+						<th scope="row">{{ table.id }}</th>
+						<td>
+							<a href="{% url 'tables:update_table' pk=table.id %}">
+								{{ table.name }}
+							</a>
+						</td>
+						<td>{{ table.date }}</td>
+						<td>{{ table.close_date }}</td>
+						<td>{{ table.delivery_date }}</td>
+						<td>{{ table.delivery_date }}</td>
+						<td>
+							<a href="{% url 'tables:delete_table' pk=table.id %}" class="btn btn-danger">Eliminar</a>
+						</td>
+						<td>
+							<a href="{% url 'tables:detail_table' pk=table.id %}" class="btn btn-primary">Detalles</a>
+						</td>
+					</tr>
+				{% endfor %}
+
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+
+{% endblock %}

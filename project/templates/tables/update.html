@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+	<nav aria-label="breadcrumb" style="margin-top: 20px">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item active" aria-current="page">Evento</li>
+			<li class="breadcrumb-item">Regalos</li>
+		</ol>
+	</nav>
+	<h2 class="mt-2">Actualizar "{{ object.name }}"</h2>
+	<hr class="mt-0 mb-4">
+	<form method="post" novalidate>
+		{% csrf_token %}
+		{{ form | crispy }}
+		<button type="submit" class="btn btn-success">Guardar</button>
+		<a href="{% url 'gifts:update_gifts' pk=object.id %}" class="btn btn-primary">Actualizar Regalos</a>
+		<a href="{% url 'users:profile' %}" class="btn btn btn-info"> Regresar</a>
+	</form>
+{% endblock %}

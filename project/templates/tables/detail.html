@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block style %}
+	<style type="text/css">
+		.cool-card:nth-child(n+4) {
+			margin-top: 20px;
+		}
+
+	</style>
+{% endblock %}
+
+{% block content %}
+	<h2 class="mt-2" style="margin-top: 20px">{{ table.name }}</h2>
+	<hr class="mt-0 mb-4">
+	<ul class="list-group">
+		<li class="list-group-item">
+			<strong>Nombre:</strong> {{ table.name }}
+		</li>
+		<li class="list-group-item">
+			<strong>Fecha del Evento:</strong> {{ table.date }}
+		</li>
+		<li class="list-group-item">
+			<strong>Fecha de Cierre:</strong> {{ table.close_date }}
+		</li>
+		<li class="list-group-item">
+			<strong>Fecha de Entrega:</strong> {{ table.delivery_date }}
+		</li>
+		<li class="list-group-item">
+			<strong>Tipo de Evento:</strong> {{ table.get_type_display }}
+		</li>
+		<li class="list-group-item">
+			<strong>Link de Compra:</strong> <a href="{% url 'tables:select_gift' pk=table.id %}">{% url 'tables:select_gift' pk=table.id %}</a>
+		</li>
+	</ul>
+	<div class="row" style="margin-top: 20px">
+		{% for item in gifts %}
+			<div class="col-4 cool-card">
+				<div class="card">
+					<img class="card-img-top" src="{{ item.gift.image.url }}" alt="Card image cap">
+					<div class="card-body">
+						<h5 class="card-title">{{ item.name }}</h5>
+						<p class="card-text">
+							{{ item.gift.description }}
+						</p>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+	<div class="row" style="margin-top: 20px">
+		<div class="col-12">
+			<button onclick="window.print()" class="btn btn-warning" style="margin-bottom: 20px">Imprimir</button>
+		</div>
+	</div>
+	<div class="row" style="margin-top: 20px">
+		<div class="col-12">
+			<a href="{% url 'users:profile' %}" class="btn btn btn-info"> Regresar</a>
+
+		</div>
+	</div>
+{% endblock %}
