@@ -12,8 +12,6 @@ PROJECT_DIR = ROOT_DIR.path('project')
 env = environ.Env()
 
 # OS environment variables take precedence over variables from .env
-env.read_env(str(ROOT_DIR.path(".env")))
-
 # GENERAL
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#debug
